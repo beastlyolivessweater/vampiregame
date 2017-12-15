@@ -82,27 +82,34 @@ key_jump = (not key_crouch and (keyboard_check_pressed(vk_space) or keyboard_che
 
 //React to inputs
 move = -key_left + key_right;
-if key_crouch {hsp = move * movespeed}
-else {hsp = move * movespeed * 2};
+if key_crouch 
+{
+    hsp = move * movespeed
+}
+else 
+{
+    hsp = move * movespeed * 2
+};
 
-
-
- 
- if move == 0 image_speed = 0;
+if move == 0 
+{
+    image_speed = 0;
+}
 
 if key_crouch
 {
-
-global.crouch = true;
-mask_index = spr_crouchhitbox;
-};
+    global.crouch = true;
+    mask_index = spr_crouchhitbox;
+}
 else
 {
-global.crouch = false;
-mask_index = spr_player;
+    global.crouch = false;
+    mask_index = spr_player;
 };
 
-if (vsp &lt; 10) vsp += grav;
+if (vsp &lt; 10)
+{
+    vsp += grav;
 
 if (place_meeting(x,y+1,obj_wall))
 {
@@ -120,7 +127,7 @@ if image_index &gt; 7 and crouch = 0 image_index -= 8;
 
 if global.crouch
 {
-tinyjump = 0;
+    tinyjump = 0;
 };
 
 if not global.crouch and tinyjump = 0 
